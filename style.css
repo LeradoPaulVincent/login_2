@@ -1,0 +1,23 @@
+body {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    padding: 30px;
+    padding-bottom: 100px;
+    border-color: black;
+}
+.textfield {
+    background-color: #d0ebf7 ; 
+    border-color: #4287f5;
+    border-radius: 5px;
+    font-size: medium; 
+    padding: 5px;
+}
+#btn-login {
+    background-color: #d0ebf7;
+    border-color: #4287f5;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    padding: 5px;
+}
