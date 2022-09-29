@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU SE 2125</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+
+
+
+
+<body>
+
+    <style>
+        .home-card {
+            height: 500px;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="col d-flex justify-content-center mt-4">
+            <div class="card home-card shadow-lg col-3">
+                <div class="col-10 align-items-end offset-1">
+                    <button id="add-people-btn" class="btn btn-primary  float-end">Add</button>
+                </div>
+
+                <div class="card offset-1 mt-2 col-10" id="list-of-people">
+
+                    <div class="card-header">
+                        People
+                    </div>
+                    <ul id="people-list" class="list-group list-group-flush">
+                    </ul>
+                </div>
+
+                <div class="collapse card col-10 float-end offset-1 mt-5" id="people-detail-section">
+                    <h4 class="card-title">Enter Name</h4>
+                    <div>
+                        <div>
+                            <label>First Name</label>
+                            <input class="form-control form-control-mt" type="text" id="people-first-name" />
+                        </div>
+                        <div class="body mt-2">
+                            <label>Last Name</label>
+                            <input class="form-control form-control-mt" type="text" id="people-last-name" />
+                        </div>
+                        <div class="float-end">
+                            <button id="cancel-add-btn" class="btn btn-primary">Cancel</button>
+                            <button id="save-btn" class="btn btn-danger">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+    const addPeople = document.querySelector("#add-people-btn");
+    const peopleDetailSection = document.querySelector("#people-detail-section");
+    const cancelAdd = document.querySelector("#cancel-add-btn");
+    const saveBtn = document.querySelector("#save-btn")
+    const peopleFirstNameTxt = document.querySelector("#people-first-name");
+    const peopleLastNameTxt = document.querySelector("#people-last-name");
+    const peopleList = document.querySelector("#list-of-people")
+
+
+    addPeople.onclick = () => {
+        peopleDetailSection.style.display = "block";
+        peopleList.style.display = "none";
+        addPeople.style.display = "none";
+    }
+    cancelAdd.onclick = () => {
+        peopleDetailSection.style.display = "none";
+        peopleList.style.display = "block";
+        addPeople.style.display = "block";
+    }
+    saveBtn.onclick = () => {
+        const firstName = peopleFirstNameTxt.value;
+        const lastName = peopleLastNameTxt.value;
+
+        // console.log("people list", peopleList.innerHTML);
+
+        // peopleList.innerHTML += "<li>" + firstName + ", " + lastName + "</li>";
+
+        const newPeople = document.createElement("ul"); //<li></li>
+        newPeople.append(firstName + " " + lastName);
+
+        peopleList.append(newPeople);
+        peopleDetailSection.style.display = "none";
+        peopleList.style.display = "block";
+        addPeople.style.display = "block";
+
+    }
+</script>
+
+
+
+
+
+</html>
